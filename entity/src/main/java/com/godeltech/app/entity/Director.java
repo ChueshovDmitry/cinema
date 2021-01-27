@@ -1,4 +1,4 @@
-package com.godeltech.app.service.entity;
+package com.godeltech.app.entity;
 
 import lombok.Builder;
 import lombok.Data;

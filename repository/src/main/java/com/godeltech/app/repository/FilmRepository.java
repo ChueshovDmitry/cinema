@@ -1,6 +1,6 @@
-package com.godeltech.app.service.repository;
+package com.godeltech.app.repository;
 
-import com.godeltech.app.service.entity.Film;
+import com.godeltech.app.entity.Film;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FilmRepository extends PagingAndSortingRepository<Film,Integer> {
+    
 
 }

@@ -1,7 +1,7 @@
 package com.godeltech.app.service;
 
-import com.godeltech.app.service.entity.Film;
-import com.godeltech.app.service.repository.FilmRepository;
+import com.godeltech.app.entity.Film;
+import com.godeltech.app.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class FilmService implements BaseAbstractService<Film> {
+public class FilmService {
     
     private final FilmRepository filmRepository;
     

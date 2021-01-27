@@ -1,4 +1,4 @@
-package com.godeltech.app.service.entity;
+package com.godeltech.app.entity;
 import lombok.Builder;
 import lombok.Data;
 import javax.persistence.*;
@@ -44,7 +44,6 @@ public class Film implements Serializable {
             referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "director_film_fk"))
     private Director director;
-    
     
 }
 

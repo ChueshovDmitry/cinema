@@ -1,8 +1,10 @@
-package com.godeltech.app.service.repository;
+package com.godeltech.app.repository;
 
-import com.godeltech.app.service.entity.Director;
+import com.godeltech.app.entity.Director;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Dmitry Chueshov 26.01.2021 15:06
@@ -12,5 +14,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DirectorRepository extends PagingAndSortingRepository<Director,Integer> {
 
-
+    boolean deleteEntityById(Integer id);
+    List <Director> findAll();
+    
+    
 }
