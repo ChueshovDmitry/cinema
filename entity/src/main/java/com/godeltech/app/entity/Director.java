@@ -48,7 +48,7 @@ public class Director implements Serializable {
             orphanRemoval = true,
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    private Set<Film>filmSet = new HashSet<>();
+    private Set <Film> filmSet = new HashSet<>();
     
     
     
