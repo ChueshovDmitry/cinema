@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * @author Dmitry Chueshov 16.11.2020 18:52
- * @project library
+ *
  */
 
 @Data

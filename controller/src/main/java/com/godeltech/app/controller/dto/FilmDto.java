@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * @author Dmitry Chueshov 28.01.2021 2:53
- * @project application
+ *
  */
 
 @Data

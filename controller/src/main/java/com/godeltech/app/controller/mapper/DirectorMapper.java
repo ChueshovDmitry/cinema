@@ -4,6 +4,7 @@ import com.godeltech.app.controller.mapper.abstraction.AbstractionMapDto;
 import com.godeltech.app.entity.Director;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -18,6 +19,7 @@ public class DirectorMapper implements AbstractionMapDto<DirectorDto, Director> 
 
     private ModelMapper modelMapper;
     
+    @Autowired
     public DirectorMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
