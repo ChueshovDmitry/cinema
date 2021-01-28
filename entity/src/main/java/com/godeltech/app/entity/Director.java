@@ -1,13 +1,11 @@
 package com.godeltech.app.entity;
-
 import lombok.Builder;
 import lombok.Data;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 
 /**
  * @author Dmitry Chueshov 26.01.2021 14:20
@@ -40,16 +38,14 @@ public class Director implements Serializable {
     )
     private String lastName;
     
-    @Temporal(TemporalType.DATE)
     @Column
-    private Date birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
     
     @OneToMany(mappedBy = "director",
             orphanRemoval = true,
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    private Set <Film> filmSet = new HashSet<>();
-    
-    
+    private List<Film> filmList;
     
 }

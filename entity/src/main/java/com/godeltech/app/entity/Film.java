@@ -1,8 +1,10 @@
 package com.godeltech.app.entity;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -27,9 +29,9 @@ public class Film implements Serializable {
     )
     private String name;
     
-    @Temporal(TemporalType.DATE)
     @Column(nullable = true)
-    private Date releaseDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate releaseDate;
     
     @Column(name = "genre",
             nullable = true,
@@ -40,10 +42,8 @@ public class Film implements Serializable {
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(
             name = "director_id",
-            nullable = false,
             referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "director_film_fk"))
     private Director director;
-    
 }
 

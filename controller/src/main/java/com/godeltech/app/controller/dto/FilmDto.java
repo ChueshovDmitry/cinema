@@ -14,7 +14,6 @@ public class FilmDto {
     
     private int id;
     private String name;
-    private Date releaseDate;
+    private String releaseDate;
     private String genre;
-    private DirectorDto director;
 }

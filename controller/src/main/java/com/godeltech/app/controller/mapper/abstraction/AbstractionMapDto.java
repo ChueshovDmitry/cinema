@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface AbstractionMapDto<T,S> {
     
-    T modelToDto(S model);
+    T entityToDto(S model);
     
-    S dtoToModel(T dtoModel);
+    S dtoToEntity(T dtoModel);
     
     List<T> convertEntityToDTOList(List<S> list);
     

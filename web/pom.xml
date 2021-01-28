@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.godeltech</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>controller</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

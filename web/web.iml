@@ -25,6 +25,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="controller" />
+    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:2.3.8" level="project" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="repository" />
     <orderEntry type="module" module-name="entity" />

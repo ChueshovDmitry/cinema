@@ -10,10 +10,9 @@ import java.util.*;
 
 @Data
 public class DirectorDto {
-    
     private int id;
     private String firstName;
     private String lastName;
-    private Date birthDate;
-    private Set <FilmDto> filmSet;
+    private String birthDate;
+    private List <FilmDto> filmSet = new ArrayList<>();
 }
