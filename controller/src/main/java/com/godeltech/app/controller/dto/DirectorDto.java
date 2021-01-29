@@ -14,5 +14,5 @@ public class DirectorDto {
     private String firstName;
     private String lastName;
     private String birthDate;
-    private List <FilmDto> filmSet = new ArrayList<>();
+    private List <FilmDto> filmList;
 }

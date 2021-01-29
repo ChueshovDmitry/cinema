@@ -1,6 +1,7 @@
 package com.godeltech.app.entity;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +14,6 @@ import java.util.*;
  */
 
 @Data
-@Builder
 @Entity
 @Table
 public class Director implements Serializable {
@@ -40,7 +40,7 @@ public class Director implements Serializable {
     
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthDate;
+    private Date birthDate;
     
     @OneToMany(mappedBy = "director",
             orphanRemoval = true,

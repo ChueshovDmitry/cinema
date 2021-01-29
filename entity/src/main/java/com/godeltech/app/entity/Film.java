@@ -13,7 +13,6 @@ import java.util.Date;
  */
 
 @Data
-@Builder
 @Entity
 @Table
 public class Film implements Serializable {
@@ -31,7 +30,7 @@ public class Film implements Serializable {
     
     @Column(nullable = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate releaseDate;
+    private Date releaseDate;
     
     @Column(name = "genre",
             nullable = true,

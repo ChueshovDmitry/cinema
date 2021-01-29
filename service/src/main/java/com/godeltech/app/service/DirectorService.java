@@ -51,9 +51,9 @@ public class DirectorService  {
     
     
     @Transactional(rollbackFor = {Exception.class})
-    public boolean delete (Director entity){
-        if(directorRepository.existsById(entity.getId())){
-           return directorRepository.deleteEntityById(entity.getId());
+    public boolean delete(Integer id){
+        if(directorRepository.existsById(id)){
+           return directorRepository.deleteEntityById(id);
         }else return false;
     }
     

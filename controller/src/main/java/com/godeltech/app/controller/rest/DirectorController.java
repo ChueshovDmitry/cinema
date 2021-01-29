@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * @author Dmitry Chueshov 28.01.2021 15:33
@@ -30,10 +32,29 @@ public class DirectorController {
     }
     
     @PostMapping(value = "/add")
-    public ResponseEntity<?> addAuthor(@RequestBody DirectorDto directorDto) {
+    public ResponseEntity<?> postDirector(@RequestBody DirectorDto directorDto) {
         final DirectorDto dto = directorMapperDto
                 .entityToDto(directorService.create(directorMapperDto.dtoToEntity(directorDto)));
         return dto != null ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<?>> getAllDirector() {
+        final List<DirectorDto> directorDtoList = directorMapperDto.convertEntityToDTOList(directorService.getAll());
+        return directorDtoList != null && !directorDtoList.isEmpty() ? new ResponseEntity<>(directorDtoList,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<?> updateDirector(@PathVariable("id") Integer id, @RequestBody DirectorDto directorDto) throws Exception {
+        final DirectorDto dto = directorMapperDto.entityToDto(directorService.update(directorMapperDto.dtoToEntity(directorDto)));
+        return dto != null ? new ResponseEntity<>(dto,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    
+    
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<?> deleteAuthorById(@PathVariable(name = "id") Integer id) {
+        final boolean deleted = directorService.delete(id);
+        return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
     
     
