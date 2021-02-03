@@ -18,10 +18,10 @@ The application complies with the principles of the MVC and has a modular struct
 There is a database initialization script (mydb.sql) and JUnit-tests that cover the main functionality. 
 
 Technologies used:
+- Java 8
 - Spring Boot 2
 - Spring Data
 - Maven 3
-- Java 8
 - REST API
 - PostgreSql
 - Junit 5     
