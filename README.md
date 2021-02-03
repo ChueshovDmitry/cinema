@@ -34,10 +34,10 @@ Installing the app:
       and specify the value "create" in the line "spring.jpa.hibernate.ddl-auto = create".
       In this case, when starting the application, the database "mydb" will be created, filled with
       test data from file dao\src\main\resources\populateDB.sql
- - To create an empty database and tables in PostgreSQL, run the SQL\createDB.bat file, which will create the database "mydb" with all the necessary tables.
-3) In the web\src\main\resources folder open the application.properties file,
+- To create an empty database and tables in PostgreSQL, run the SQL\createDB.bat file, which will create the database "mydb" with all the necessary tables.
+- In the web\src\main\resources folder open the application.properties file,
    change the username and password for accessing the database by changing the value in the lines
    "spring.datasource.username" and "spring.datasource.password".
-4) To package and run the project, you need Tomcat version 9.0 or higher and Maven 3.*
-5) Run the mvn_package.bat file
-6) After successful packaging, you need to install the web-0.0.1.war file located in the controller\target\scooter_rental.war to folder on the Tomcat server.
+- To package and run the project, you need Tomcat version 9.0 or higher and Maven 3.*
+- Run the mvn_package.bat file
+- After successful packaging, you need to install the web-0.0.1.war file located in the web/target/web-0.0.1.war to folder on the Tomcat server.
