@@ -15,8 +15,10 @@ import java.util.List;
 public interface DirectorRepository extends PagingAndSortingRepository<Director,Integer> {
 
     boolean deleteEntityById(Integer id);
+    
     List <Director> findAll();
     
+    List<Director> findByLastNameIsLike(String lastName);
     
     
 }

@@ -36,18 +36,17 @@ class DirectorRepositoryTest {
     @Rollback(false)
     void saveEntity(){
         
-//        Director director = Director.builder()
-////                .birthDate(LocalDate.of(2020,12,1))
-//                .firstName("Tom")
-//                .lastName("Cruse").build();
-//
-//        Film film = Film.builder().name("Lisa")
-//                .genre("Horror")
-////                .releaseDate(LocalDate.of(2020,1,1))
-//                .director(director)
-//                .build();
-//
-//        filmRepository.save(film);
+        Director director = new Director();
+        director.setBirthDate(new Date(2020-12-1));
+        director.setFirstName("Tom");
+        director.setLastName("Cruse");
+
+        Film film = new Film();
+        film.setName("Lisa");
+        film.setGenre("Horror");
+        film.setReleaseDate(new Date(2020-12-1));
+        film.setDirector(director);
+        filmRepository.save(film);
         
     }
 }

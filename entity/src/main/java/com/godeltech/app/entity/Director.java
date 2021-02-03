@@ -16,6 +16,7 @@ import java.util.*;
 @Data
 @Entity
 @Table
+//@Table(name = "director",indexes = { @Index(name = "IND_NUMBER", columnList = "") })
 public class Director implements Serializable {
     
     @Id

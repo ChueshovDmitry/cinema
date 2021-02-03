@@ -2,7 +2,9 @@ package com.godeltech.app.repository;
 
 import com.godeltech.app.entity.Director;
 import com.godeltech.app.entity.Film;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -18,8 +20,17 @@ import java.util.List;
 public interface FilmRepository extends PagingAndSortingRepository<Film,Integer> {
     
     boolean deleteEntityById(Integer id);
+    
     List<Film> findAll();
+    
     List<Film> findAllByDirectorFirstName(String surname);
-    List<Film>findFilmByReleaseDateBetween(Date start,Date end);
-    boolean existsByDirectorFirstName(String surname);
+    
+    boolean existsByDirectorLastName(String surname);
+    
+//    @Query(value = "from Film t where t.releaseDate BETWEEN :startDate AND :endDate")
+//    public List<Film> getAllBetweenDates(@Param("startDate")Date startDate,@Param("endDate")Date endDate);
+    
+    List<Film> findByDirectorLastNameAndReleaseDateBetween(String lastName, Date dateAfter, Date dateBefore);
+    
+    List<Film> findByReleaseDateBetween(Date dateAfter, Date dateBefore);
 }
