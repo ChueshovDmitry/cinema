@@ -1,0 +1,10 @@
+[ERROR] 2021-02-08 02:18:39.942 [http-nio-8080-exec-6] DirectorController - ResponseEntity com.godeltech.app.controller.rest.DirectorController.updateDirector(Integer,DirectorDto) 2 updateDirector Exception in update transaction [ 1, {
+  "id" : 0,
+  "firstName" : null,
+  "lastName" : "Dmitrys",
+  "birthDate" : null
+} ] 
+[ERROR] 2021-02-08 02:25:12.877 [http-nio-8080-exec-7] DirectorController - ResponseEntity com.godeltech.app.controller.rest.DirectorController.deleteDirectorById(Integer) 1 deleteDirectorById java.lang.Integer cannot be cast to java.lang.Boolean [ 1 ] 
+[ERROR] 2021-02-08 02:25:25.249 [http-nio-8080-exec-3] DirectorController - ResponseEntity com.godeltech.app.controller.rest.DirectorController.deleteDirectorById(Integer) 1 deleteDirectorById java.lang.Integer cannot be cast to java.lang.Boolean [ 1 ] 
+[ERROR] 2021-02-08 02:26:15.503 [http-nio-8080-exec-6] DirectorController - ResponseEntity com.godeltech.app.controller.rest.DirectorController.deleteDirectorById(Integer) 1 deleteDirectorById java.lang.Integer cannot be cast to java.lang.Boolean [ 1 ] 
+[ERROR] 2021-02-08 02:26:48.107 [http-nio-8080-exec-10] FilmController - ResponseEntity com.godeltech.app.controller.rest.FilmController.deleteFilmById(Integer) 1 deleteFilmById Exception in delete transaction [ 1 ] 

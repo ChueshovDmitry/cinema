@@ -54,7 +54,7 @@ public class DirectorController {
     
     
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<?> deleteAuthorById(@PathVariable(name = "id") Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<?> deleteDirectorById(@PathVariable(name = "id") Integer id) throws ResourceNotFoundException {
         final boolean deleted = abstractDirectorService.delete(id);
         return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
