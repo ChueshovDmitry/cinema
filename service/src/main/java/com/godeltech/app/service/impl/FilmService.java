@@ -4,6 +4,7 @@ package com.godeltech.app.service.impl;
 import com.godeltech.app.entity.Film;
 import com.godeltech.app.repository.FilmRepository;
 import com.godeltech.app.service.AbstractFilmService;
+import com.godeltech.app.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,19 +29,19 @@ public class FilmService implements AbstractFilmService {
     
     @Override
     @Transactional(rollbackFor = {Exception.class })
-    public Film create(Film entity) throws Exception {
+    public Film create(Film entity) throws ResourceNotFoundException {
         if(entity != null){
             return filmRepository.save(entity);
-        } else throw new Exception("Error in create method,error in transactions," + " entity is equals null");
+        } else throw new ResourceNotFoundException("Error in create method,error in transactions," + " entity is equals null");
     }
     
     
     @Override
     @Transactional(rollbackFor = {Exception.class})
-    public Film update(Film entity) throws Exception {
+    public Film update(Film entity) throws ResourceNotFoundException {
         if (filmRepository.existsById(entity.getId())){
             return filmRepository.save(entity);
-        } else throw new Exception("Exception in update transaction");
+        } else throw new ResourceNotFoundException("Exception in update transaction");
     }
     
     
@@ -52,10 +53,10 @@ public class FilmService implements AbstractFilmService {
     
     @Override
     @Transactional(rollbackFor = {Exception.class})
-    public boolean delete(Integer id) throws Exception {
+    public boolean delete(Integer id) throws ResourceNotFoundException {
         if(filmRepository.existsById(id)){
             return filmRepository.deleteEntityById(id);
-        }else throw new Exception("Exception in delete transaction");
+        }else throw new ResourceNotFoundException("Exception in delete transaction");
     }
     
     @Override

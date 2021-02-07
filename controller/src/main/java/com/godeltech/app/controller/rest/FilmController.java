@@ -5,6 +5,7 @@ import com.godeltech.app.controller.dto.FilmDto;
 import com.godeltech.app.controller.mapper.abstraction.AbstractionMapDto;
 import com.godeltech.app.entity.Film;
 import com.godeltech.app.service.AbstractFilmService;
+import com.godeltech.app.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,26 +33,26 @@ public class FilmController {
     }
     
     @PostMapping(value = "/add")
-    public ResponseEntity<?> postDirector(@RequestBody FilmDto filmDto) throws Exception {
+    public ResponseEntity<?> postFilm(@RequestBody FilmDto filmDto) throws ResourceNotFoundException {
         final FilmDto dto = filmMapperDto
                 .entityToDto(abstractFilmService.create(filmMapperDto.dtoToEntity(filmDto)));
         return dto != null ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
     
     @GetMapping(value = "/all")
-    public ResponseEntity<List<?>> getAllDirector() {
+    public ResponseEntity<List<?>> getAllFilm() {
         final List<FilmDto> filmDtoList = filmMapperDto.convertEntityToDTOList(abstractFilmService.getAll());
         return filmDtoList != null && !filmDtoList.isEmpty() ? new ResponseEntity<>(filmDtoList,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     @PatchMapping("/update/{id}")
-    public ResponseEntity<?> updateDirector(@PathVariable("id") Integer id, @RequestBody FilmDto filmDto) throws Exception {
+    public ResponseEntity<?> updateFilm(@PathVariable("id") Integer id, @RequestBody FilmDto filmDto) throws ResourceNotFoundException {
         final FilmDto dto = filmMapperDto.entityToDto(abstractFilmService.update(filmMapperDto.dtoToEntity(filmDto)));
         return dto != null ? new ResponseEntity<>(dto,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<?> deleteAuthorById(@PathVariable(name = "id") Integer id) throws Exception {
+    public ResponseEntity<?> deleteFilmById(@PathVariable(name = "id") Integer id) throws ResourceNotFoundException {
         final boolean deleted = abstractFilmService.delete(id);
         return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }

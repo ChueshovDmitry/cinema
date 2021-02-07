@@ -26,6 +26,7 @@ Technologies used:
 - PostgreSql
 - Junit 5     
 
+
 Installing the app:
 - Postgre is required.
 - Create a database:

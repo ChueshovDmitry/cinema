@@ -1,6 +1,7 @@
 package com.godeltech.app.service;
 
 import com.godeltech.app.entity.Film;
+import com.godeltech.app.service.exception.ResourceNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -14,13 +15,13 @@ import java.util.List;
 public interface AbstractFilmService {
     
     @Transactional(rollbackFor = {Exception.class })
-    Film create(Film entity) throws Exception;
+    Film create(Film entity) throws ResourceNotFoundException;
     
     @Transactional(rollbackFor = {Exception.class})
-    Film update(Film entity) throws Exception;
+    Film update(Film entity) throws ResourceNotFoundException;
     
     @Transactional(rollbackFor = {Exception.class})
-    boolean delete(Integer id) throws Exception;
+    boolean delete(Integer id) throws ResourceNotFoundException;
     
     @Transactional(readOnly = true)
     List<Film> getAll();
