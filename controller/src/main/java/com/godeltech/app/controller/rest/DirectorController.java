@@ -4,6 +4,7 @@ import com.godeltech.app.controller.dto.DirectorDto;
 import com.godeltech.app.controller.mapper.abstraction.AbstractionMapDto;
 import com.godeltech.app.entity.Director;
 import com.godeltech.app.service.AbstractDirectorService;
+import com.godeltech.app.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,27 +34,27 @@ public class DirectorController {
     }
     
     @PostMapping(value = "/add")
-    public ResponseEntity<?> postDirector(@RequestBody DirectorDto directorDto) throws Exception {
+    public ResponseEntity<?> postDirector(@RequestBody DirectorDto directorDto) throws ResourceNotFoundException {
         final DirectorDto dto = directorMapperDto
                 .entityToDto(abstractDirectorService.create(directorMapperDto.dtoToEntity(directorDto)));
         return dto != null ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
     
     @GetMapping(value = "/all")
-    public ResponseEntity<List<?>> getAllDirector() {
+    public ResponseEntity<List<?>> getAllDirector() throws ResourceNotFoundException {
         final List<DirectorDto> directorDtoList = directorMapperDto.convertEntityToDTOList(abstractDirectorService.getAll());
         return directorDtoList != null && !directorDtoList.isEmpty() ? new ResponseEntity<>(directorDtoList,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     @PatchMapping("/update/{id}")
-    public ResponseEntity<?> updateDirector(@PathVariable("id") Integer id, @RequestBody DirectorDto directorDto) throws Exception {
+    public ResponseEntity<?> updateDirector(@PathVariable("id") Integer id, @RequestBody DirectorDto directorDto) throws ResourceNotFoundException  {
         final DirectorDto dto = directorMapperDto.entityToDto(abstractDirectorService.update(directorMapperDto.dtoToEntity(directorDto)));
         return dto != null ? new ResponseEntity<>(dto,HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<?> deleteAuthorById(@PathVariable(name = "id") Integer id) throws Exception {
+    public ResponseEntity<?> deleteAuthorById(@PathVariable(name = "id") Integer id) throws ResourceNotFoundException {
         final boolean deleted = abstractDirectorService.delete(id);
         return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
