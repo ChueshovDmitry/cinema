@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 
 @SpringBootApplication
-@EntityScan(basePackages = "com.godeltech.app.entity")
+@EntityScan(basePackages = "com/godeltech/app/entity")
 @PropertySource("classpath:app.properties")
 public class TestApp {
     

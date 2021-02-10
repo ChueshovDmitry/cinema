@@ -20,12 +20,13 @@ import static org.apache.logging.log4j.LogManager.getLogger;
 public class LoggingAspect {
     
     private static final String SPACE = " ";
-    private Logger logger;
+    
     private ObjectMapper objectMapper;
     
     @AfterThrowing(pointcut = "execution ( public * com.godeltech.app.controller.rest.*.*(..))", throwing = "exception")
     public void loggingExceptionControllerLayer(JoinPoint joinPoint,Exception exception) {
-    
+        Logger logger;
+        
         StringBuilder builder = new StringBuilder();
     
         logger = getLogger(joinPoint.getTarget().getClass());
@@ -42,7 +43,7 @@ public class LoggingAspect {
             logger.error(builder.toString());
         
         } catch(JsonProcessingException e){
-            logger = getLogger(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 }
